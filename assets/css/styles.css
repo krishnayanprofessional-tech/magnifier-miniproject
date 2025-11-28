@@ -630,27 +630,86 @@ body {
 }
 
 /* ===== Responsive Design ===== */
-@media (max-width: 768px) {
-    :root {
-        --magnifier-size: 120px;
-        --magnifier-scale: 3;
-    }
-    
+@media (max-width: 1200px) {
     .portfolio-content {
         padding: var(--space-xl);
+        max-width: 90%;
     }
     
     .portfolio-heading {
-        font-size: clamp(2rem, 8vw, 3rem);
+        font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    }
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --magnifier-size: 130px;
+        --magnifier-scale: 3.2;
+    }
+    
+    .magnifier-section {
+        min-height: 350px;
     }
     
     .magnifier-content {
-        font-size: 2.8rem;
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --magnifier-size: 110px;
+        --magnifier-scale: 2.8;
+        --space-2xl: 4rem;
+        --space-xl: 2rem;
+        --space-lg: 1.5rem;
+    }
+    
+    .portfolio-container {
+        padding: var(--space-lg) 0;
+    }
+    
+    .portfolio-content {
+        padding: var(--space-lg);
+    }
+    
+    .portfolio-heading {
+        font-size: clamp(1.8rem, 6vw, 2.8rem);
+        line-height: 1.4;
+    }
+    
+    .heading-line {
+        margin-bottom: var(--space-xs);
+    }
+    
+    .word {
+        margin: 0 0.2rem;
+    }
+    
+    .magnifier-section {
+        min-height: 300px;
+        margin: var(--space-lg) 0;
+    }
+    
+    .magnifier-content {
+        font-size: 2.6rem;
+    }
+    
+    .portfolio-badge {
+        margin-bottom: var(--space-lg);
+    }
+    
+    .signature-section {
+        margin-top: var(--space-xl);
     }
     
     .corner-decoration {
         width: 40px;
         height: 40px;
+    }
+    
+    .top-left, .top-right, .bottom-left, .bottom-right {
+        margin: var(--space-md);
     }
     
     .portfolio-tagline {
@@ -659,46 +718,211 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
     :root {
         --magnifier-size: 100px;
-        --magnifier-scale: 2.8;
+        --magnifier-scale: 2.5;
+    }
+    
+    .portfolio-heading {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+    }
+    
+    .magnifier-content {
+        font-size: 2.2rem;
+    }
+    
+    .magnifier-section {
+        min-height: 250px;
+    }
+    
+    .badge-text {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --magnifier-size: 90px;
+        --magnifier-scale: 2.2;
+        --space-2xl: 3rem;
+        --space-xl: 1.5rem;
+        --space-lg: 1rem;
+    }
+    
+    .portfolio-content {
+        padding: var(--space-md);
+    }
+    
+    .portfolio-heading {
+        font-size: clamp(1.4rem, 8vw, 2rem);
+        line-height: 1.5;
+    }
+    
+    .heading-line {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.1rem;
+    }
+    
+    .word {
+        margin: 0;
+        white-space: nowrap;
+    }
+    
+    .magnifier-section {
+        min-height: 220px;
+        margin: var(--space-md) 0;
+    }
+    
+    .magnifier-content {
+        font-size: 2rem;
+    }
+    
+    .portfolio-badge {
+        margin-bottom: var(--space-md);
+    }
+    
+    .signature-section {
+        margin-top: var(--space-lg);
+    }
+    
+    .corner-decoration {
+        width: 30px;
+        height: 30px;
+        margin: var(--space-sm);
+    }
+    
+    .portfolio-tagline {
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+        padding: 0 var(--space-sm);
+    }
+    
+    .divider {
+        width: 80px;
+    }
+}
+
+@media (max-width: 380px) {
+    :root {
+        --magnifier-size: 80px;
+        --magnifier-scale: 2;
+    }
+    
+    .portfolio-heading {
+        font-size: clamp(1.2rem, 9vw, 1.8rem);
+    }
+    
+    .magnifier-content {
+        font-size: 1.8rem;
+    }
+    
+    .magnifier-section {
+        min-height: 200px;
+    }
+    
+    .badge-text {
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .portfolio-tagline {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* ===== Touch Device Optimizations ===== */
+@media (hover: none) and (pointer: coarse) {
+    .magnifier-section {
+        cursor: pointer;
+        touch-action: manipulation;
+    }
+    
+    .magnifier-glass {
+        transition: all 0.2s ease;
+    }
+    
+    /* Reduce animations on touch devices for better performance */
+    .particle {
+        animation-duration: 8s;
+    }
+    
+    .background-glow {
+        animation-duration: 10s;
+    }
+}
+
+/* ===== Orientation Specific Styles ===== */
+@media (max-height: 600px) and (orientation: landscape) {
+    .portfolio-container {
+        padding: var(--space-md) 0;
     }
     
     .portfolio-content {
         padding: var(--space-lg);
     }
     
+    .magnifier-section {
+        min-height: 200px;
+        margin: var(--space-md) 0;
+    }
+    
     .portfolio-heading {
-        font-size: clamp(1.8rem, 10vw, 2.5rem);
-        line-height: 1.4;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+    }
+    
+    .signature-section {
+        margin-top: var(--space-lg);
+    }
+}
+
+/* ===== High DPI Screen Optimizations ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .magnifier-glass {
+        border-width: 1.5px;
+    }
+    
+    .magnifier-crosshair::before,
+    .magnifier-crosshair::after {
+        transform: scale(0.75);
+    }
+}
+
+/* ===== Reduced Motion Support ===== */
+@media (prefers-reduced-motion: reduce) {
+    .magnifier-glass {
+        transition: opacity 0.1s ease;
+    }
+    
+    .char {
+        transition: none;
     }
     
     .magnifier-content {
-        font-size: 2.4rem;
+        transition: none;
+    }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+    .magnifier-glass,
+    .background-glow,
+    .particles-container,
+    .corner-decoration {
+        display: none !important;
     }
     
-    .portfolio-tagline {
-        font-size: 0.75rem;
-        letter-spacing: 1.5px;
+    .portfolio-container {
+        background: white !important;
+        color: black !important;
     }
-}
-
-/* Performance Optimizations */
-.magnifier-glass {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000;
-}
-
-.portfolio-heading {
-    transform: translateZ(0);
-}
-
-html, body {
-    height: 100%;
-}
-
-.portfolio-container {
-    min-height: 100vh;
+    
+    .portfolio-heading {
+        color: black !important;
+        text-shadow: none !important;
+    }
 }
